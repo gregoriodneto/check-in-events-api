@@ -43,3 +43,8 @@ Thumbs.db
 *.njsproj
 *.sln
 /generated/prisma
+/src/generated/prisma
+
+# Banco de dados SQLite
+prisma/dev.db
+prisma/dev.db-journal

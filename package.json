@@ -2,6 +2,7 @@
   "name": "check-in-events-api",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "start": "node dist/main.ts",
@@ -13,15 +14,16 @@
   "description": "MicroSistema de Check-in em Eventos",
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "prisma": "^6.10.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@prisma/client": "^6.10.0",
     "@types/express": "^5.0.3",
     "@types/oracledb": "^6.6.1",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "oracledb": "^6.8.0",
-    "prisma": "^6.9.0"
+    "oracledb": "^6.8.0"
   }
 }
