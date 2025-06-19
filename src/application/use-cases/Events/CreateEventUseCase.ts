@@ -1,7 +1,7 @@
-import { Event } from "../../domain/entities/Event.ts";
-import { EventDTO } from "../dtos/EventDTO.ts";
-import { EventMapper } from "../mappers/EventMapper.ts";
-import { IEventRepository } from "../ports/IEventRepository.ts";
+import { Event } from "../../../domain/entities/Event.ts";
+import { EventDTO } from "../../dtos/EventDTO.ts";
+import { EventMapper } from "../../mappers/EventMapper.ts";
+import { IEventRepository } from "../../ports/IEventRepository.ts";
 
 export class CreateEventUseCase {
     constructor(private eventRepository: IEventRepository) { }

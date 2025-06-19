@@ -1,7 +1,9 @@
-import { Participant } from "../../domain/entities/Participant.ts";
-import { ParticipantDTO } from "../dtos/ParticipantDTO.ts";
-import { ParticipantMapper } from "../mappers/ParticipantMapper.ts";
-import { IParticipantRepository } from "../ports/IParticipantRepository.ts";
+import { Participant } from "../../../domain/entities/Participant.ts";
+import { ParticipantDTO } from "../../dtos/ParticipantDTO.ts";
+import { ParticipantMapper } from "../../mappers/ParticipantMapper.ts";
+import { IParticipantRepository } from "../../ports/IParticipantRepository.ts";
+
+
 
 export class CreateParticipantUseCase {
     constructor(private participantRepository: IParticipantRepository) { }

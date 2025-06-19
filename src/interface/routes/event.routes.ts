@@ -1,8 +1,8 @@
 import express from "express";
 import { PrismaEventRepository } from "../../infrastructure/repositories/PrismaEventRepository.ts";
-import { CreateEventUseCase } from "../../application/use-cases/CreateEventUseCase.ts";
+import { CreateEventUseCase } from "../../application/use-cases/Events/CreateEventUseCase.ts";
 import { EventController } from "../controllers/EventController.ts";
-import { FindAllEventsUseCase } from "../../application/use-cases/FindAllEventsUseCase.ts";
+import { FindAllEventsUseCase } from "../../application/use-cases/Events/FindAllEventsUseCase.ts";
 
 const router = express.Router();
 

@@ -1,6 +1,6 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { CreateParticipantUseCase } from "../../application/use-cases/CreateParticipantUseCase.ts";
-import { FindByIdParticipantUseCase } from "../../application/use-cases/FindByIdParticipantUseCase.ts";
+import { CreateParticipantUseCase } from "../../application/use-cases/Participants/CreateParticipantUseCase.ts";
+import { FindByIdParticipantUseCase } from "../../application/use-cases/Participants/FindByIdParticipantUseCase.ts";
 import { HttpStatus } from "../../shared/enums/HttpStatus.ts";
 import { ParticipantDTO } from "../../application/dtos/ParticipantDTO.ts";
 

@@ -1,5 +1,6 @@
-import { Participant } from "../../domain/entities/Participant.ts";
-import { IParticipantRepository } from "../ports/IParticipantRepository.ts";
+import { Participant } from "../../../domain/entities/Participant.ts";
+import { IParticipantRepository } from "../../ports/IParticipantRepository.ts";
+
 
 export class FindByIdParticipantUseCase {
     constructor(private participantRepository: IParticipantRepository) { }

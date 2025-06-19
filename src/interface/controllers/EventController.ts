@@ -1,8 +1,8 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { CreateEventUseCase } from "../../application/use-cases/CreateEventUseCase.ts";
+import { CreateEventUseCase } from "../../application/use-cases/Events/CreateEventUseCase.ts";
 import { EventDTO } from "../../application/dtos/EventDTO.ts";
 import { HttpStatus } from "../../shared/enums/HttpStatus.ts";
-import { FindAllEventsUseCase } from "../../application/use-cases/FindAllEventsUseCase.ts";
+import { FindAllEventsUseCase } from "../../application/use-cases/Events/FindAllEventsUseCase.ts";
 
 export class EventController {
     constructor(

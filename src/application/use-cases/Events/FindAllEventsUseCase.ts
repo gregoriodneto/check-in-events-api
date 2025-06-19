@@ -1,5 +1,5 @@
-import { Event } from "../../domain/entities/Event.ts";
-import { IEventRepository } from "../ports/IEventRepository.ts";
+import { Event } from "../../../domain/entities/Event.ts";
+import { IEventRepository } from "../../ports/IEventRepository.ts";
 
 export class FindAllEventsUseCase {
     constructor(private eventRepository: IEventRepository) {}
