@@ -1,9 +1,10 @@
 import { EventMapper } from "../../application/mappers/EventMapper.ts";
 import { IEventRepository } from "../../application/ports/IEventRepository.ts";
 import { Event } from "../../domain/entities/Event.ts";
+import { Report } from "../../domain/entities/Report.ts";
 import prisma from "../database/clientPrisma.ts";
 
-export class PrismaEventRepository implements IEventRepository {
+export class PrismaEventRepository implements IEventRepository {    
     async save(event: Event): Promise<Event> {
         const data = EventMapper.toDTO(event);
         const saved = await prisma.event.create({ data });
@@ -13,5 +14,9 @@ export class PrismaEventRepository implements IEventRepository {
     async findAll(): Promise<Event[]> {
         const events = await prisma.event.findMany();
         return events.map(EventMapper.toEntity);
+    }
+
+    async report(id: number): Promise<Report[]> {
+        return [];
     }
 }

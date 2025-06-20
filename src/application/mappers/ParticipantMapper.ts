@@ -5,7 +5,8 @@ export class ParticipantMapper {
     static toDTO(participant: Participant) {
         const dto = {
             name: participant.name,
-            email: participant.email
+            email: participant.email,
+            eventId: participant.eventId
         }
 
         if (participant.id !== undefined) {
@@ -19,6 +20,7 @@ export class ParticipantMapper {
         return new Participant(
             dto.name,
             dto.email,
+            dto.eventId,
             dto.id
         );
     }

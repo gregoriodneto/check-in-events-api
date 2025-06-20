@@ -6,7 +6,8 @@ export class EventMapper {
         const dto = { 
             title: event.title, 
             description: event.description, 
-            capacity: event.capacity
+            capacity: event.capacity,
+            dateTimeEvent: new Date(event.dateTimeEvent)
         };
 
         if (event.id !== undefined) {
@@ -21,6 +22,7 @@ export class EventMapper {
             dto.title,
             dto.description,
             dto.capacity,
+            new Date(dto.dateTimeEvent),
             dto.id
         );
     }
