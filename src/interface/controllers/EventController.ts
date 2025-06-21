@@ -3,11 +3,13 @@ import { CreateEventUseCase } from "../../application/use-cases/Events/CreateEve
 import { EventDTO } from "../../application/dtos/EventDTO.ts";
 import { HttpStatus } from "../../shared/enums/HttpStatus.ts";
 import { FindAllEventsUseCase } from "../../application/use-cases/Events/FindAllEventsUseCase.ts";
+import { ReportEventUseCase } from "../../application/use-cases/CheckIns/ReportEventUseCase.ts";
 
 export class EventController {
     constructor(
         private createEventUseCase: CreateEventUseCase,
-        private findAllEventsUseCase: FindAllEventsUseCase
+        private findAllEventsUseCase: FindAllEventsUseCase,
+        private reportEventUseCase: ReportEventUseCase
     ) { }
 
     create: RequestHandler = async (req: Request, res: Response, next: NextFunction) => {
@@ -37,6 +39,25 @@ export class EventController {
         } catch (error: any) {
             res.status(HttpStatus.BAD_REQUEST).json({
                 message: error.message || 'Erro na listagem dos Eventos'
+            });
+        }
+    }
+
+    report: RequestHandler = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const id = Number(req.params.id);
+            if (!id) res.status(HttpStatus.BAD_REQUEST).json({
+                message: 'Id do Evento não informado'
+            });
+
+            const report = await this.reportEventUseCase.execute(id);
+            res.status(HttpStatus.OK).json({
+                message: 'Relatório do Evento',
+                data: report
+            })
+        } catch (error: any) {
+            res.status(HttpStatus.BAD_REQUEST).json({
+                message: error.message || 'Erro no Relatório do Evento.'
             });
         }
     }

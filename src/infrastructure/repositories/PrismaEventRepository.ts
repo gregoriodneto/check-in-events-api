@@ -16,7 +16,27 @@ export class PrismaEventRepository implements IEventRepository {
         return events.map(EventMapper.toEntity);
     }
 
-    async report(id: number): Promise<Report[]> {
-        return [];
+    async report(id: number): Promise<Report | null> {
+        const events = await prisma.event.findUnique({
+            where: { id },
+            include: {
+                participants: true,
+                checkIns: true
+            }
+        });
+
+        if (!events) return null;
+
+        const numberOfParticipantsCheckedIn = events.checkIns.length;
+        const totalRegisteredParticipants = events.participants.length;
+        const attendancePercentage = (numberOfParticipantsCheckedIn / totalRegisteredParticipants * 100);
+
+        return new Report(
+            events.title,
+            events.dateTimeEvent,
+            totalRegisteredParticipants,
+            numberOfParticipantsCheckedIn,
+            attendancePercentage
+        );
     }
 }
